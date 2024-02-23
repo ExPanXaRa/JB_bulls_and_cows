@@ -33,7 +33,7 @@ public class GameTest {
     void shouldPrepareMessage() {
         Game game = Game.create(5, 15);
         String actual = game.prepare();
-        String expect = "The secret is prepared: ***** (0-9, a-e).";
+        String expect = "Секретный код подготовлен: ***** (0-9, a-e).";
         assertEquals(expect, actual);
     }
 
@@ -57,7 +57,7 @@ public class GameTest {
                 IllegalArgumentException.class,
                 () -> Game.create(10, 9)
         );
-        String expect = "Error: it's not possible to generate a code with a length of 10 with 9 unique symbols.";
+        String expect = "Ошибка: невозможно сгенерировать код длинной 10 с 9 уникальными символами.";
         assertEquals(expect, exc.getMessage());
     }
 
@@ -67,7 +67,7 @@ public class GameTest {
                 IllegalArgumentException.class,
                 () -> Game.create(40, 40)
         );
-        String expect = "Error: maximum number of possible symbols in the code is 36 (0-9, a-z).";
+        String expect = "Ошибка: максимальное количество возможных символов 36 (0-9, a-z).";
         assertEquals(expect, exc.getMessage());
     }
 }
